@@ -13,3 +13,4 @@ typedef struct estadistica{
 }estd_t;
 
 int cambiar_string_a_int();
+float calcular_promedio(int *valores);

@@ -11,6 +11,8 @@ int main(){
         valores[i] = cambiar_string_a_int();
         printf("%d\n",valores[i]);
     }
+
+    calcular_promedio(valores);
     
 
 }
