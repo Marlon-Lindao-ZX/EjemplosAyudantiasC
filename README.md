@@ -1,6 +1,7 @@
 # EjemplosAyudantiasC
 Este repositorio va a ser usado para almacenar los programas ejemplos que sean creados en las ayudantías:
 - Estadistica --> Contiene un programa para calcular la media y varianza de una lista de numeros ingresados por el usuario
+- Punteros --> Contiene las bases de los punteros, como usarlos y la aritmética de los mismos
 
 ## Caracteres Especiales usados en la familia de funciones de printf y scanf
 - %c --> para para imprimir o capturar un caracter en codigo ASCII (char, ej: si declare una variable char c = 88, al usar este caracter, en la consola me imprime el valor de X)
