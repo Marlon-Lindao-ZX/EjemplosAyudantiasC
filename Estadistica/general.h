@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-#define MAX 10
+#define MAX 5
 #define MAX2 100
 #define CONSTANTE "HOLA MUNDO"
 
@@ -14,3 +14,5 @@ typedef struct estadistica{
 
 int cambiar_string_a_int();
 float calcular_promedio(int *valores);
+float calcular_varianza(int *valores);
+float calcular_cuadrado(float valor);
