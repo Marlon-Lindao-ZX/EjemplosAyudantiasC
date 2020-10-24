@@ -2,6 +2,7 @@
 Este repositorio va a ser usado para almacenar los programas ejemplos que sean creados en las ayudantías:
 - Estadistica --> Contiene un programa para calcular la media y varianza de una lista de numeros ingresados por el usuario
 - Punteros --> Contiene las bases de los punteros, como usarlos y la aritmética de los mismos
+- Lectura de archivo o entrada del stdin --> Este es un programa que toca temas que veran en el segundo parcial, este programa imprime el contenido de un archivo por la consola, inclusive puede imprimir lo que se envia por la entrada estandar del sistema(ej: cat names.data | ./mycat)
 
 ## Caracteres Especiales usados en la familia de funciones de printf y scanf
 - %c --> para para imprimir o capturar un caracter en codigo ASCII (char, ej: si declare una variable char c = 88, al usar este caracter, en la consola me imprime el valor de X)
