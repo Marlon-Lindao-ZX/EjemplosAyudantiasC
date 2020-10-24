@@ -19,13 +19,18 @@ int main(int argc, char** argv) {
 
     switch(argc){
         case 1:
+            if(isatty(STDIN_FILENO)){
+                fprintf(stderr,"No hay dato en stdin\n");
+                fprintf(stderr, "Error de uso: \"./mycat filename\" or \"bash command |  ./mycat\"\n");
+                exit(EXIT_FAILURE);
+            }
             fd = STDIN_FILENO;
             break;
         case 2:
             fd = open_file(argv[1]);
             break;
         default:
-            fprintf(stderr, "Error de uso: \"./mysyscall filename\" or \"bash command |  ./mysyscall\"\n");
+            fprintf(stderr, "Error de uso: \"./mycat filename\" or \"bash command |  ./mycat\"\n");
             exit(EXIT_FAILURE);
 
     }
