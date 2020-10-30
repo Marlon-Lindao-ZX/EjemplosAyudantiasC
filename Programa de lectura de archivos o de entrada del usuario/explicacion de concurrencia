@@ -1,0 +1,91 @@
+		
+		Hilos: 
+		Solo tienen como propio su stack
+
+		Semaforos:
+		sem_t var;
+
+		sem_init(&var, 0,1); -->
+		
+
+		funcion del hilo()
+				
+		sem_wait(&var);
+		trabajando un hilo
+		
+		sem_post(&var);
+
+
+		Como modelar el comportamiento Productor - Consumidor
+
+		Se inicializan 3 semaforos
+		semaforo Acceso Arreglo--> para el acceso al arreglo --> Se va a inicializar en 1 sem_init()
+		semaforo Efectivo --> para ver cuantos elementos hay en el arreglo --> Es usado por los consumidores --> 
+		Este semaforo se lo inicializa en cero
+		semaforo Capacidad -> para ver cuantas casillas vacias hay en el arreglo -> Es usado por los productores -->
+		Este semaforo se lo inicializa con el tamaño del arreglo
+
+		Productores
+		funcion_productores()
+		sem_wait(semaforo Capacidad)
+		sem_wait(semaforo Acceso Arreglo)
+		logica para ingresar un elemento en el arreglo
+		sem_post(semaforo Acceso Arreglo)
+		sem_post(semaforo Efectivo)
+			
+		Consumidores
+		sem_wait(semaforo Efectivo)
+		sem_wait(semaforo Acceso Arreglo)
+		logica para sacar un elemento en el arreglo --> Dos tipos de logica, como pila o como cola
+		sem_post(semaforo Acceso Arreglo)
+		sem_post(semaforo Capacidad)
+
+		Worker Thread
+				
+		sem_t *principal --> Arreglo de semaforos, y es usado por los hilos para indicarle al main que han terminado su trabajo	
+		sem_t *worker --> Arreglo de semaforos, y es usado por el main enviar la orden a los hilos de que comienzen a hacer su trabajo		
+		Ambos arreglos deben estar en el heap, y deben ser de la misma dimension (dimension = #hilos)
+
+
+		Principal --> Main 
+
+		sempost al arreglo worker, para indicar a los hilos que comiencen a hacer su trabajo
+		for(){
+			sem_post(&worker[i])
+		}
+
+		semwait al arreglo principal, para que reciba la notificacion de finalizacion de trabajo de un hilo
+
+		for(){
+			sem_wait(&principal[i])
+		}
+
+		deben estar en un for
+
+		Worker
+
+		semwait en la posicion que le corresponde en el arreglo de worker
+
+		sem_wait(&worker[posicion]);
+
+		sempost en la posicion que le corresponde en el arreglo de principal
+		
+		sem_post(&principal[posicion]);
+
+		posicion se la envio como parametro, cuando creo el hilo en Main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
