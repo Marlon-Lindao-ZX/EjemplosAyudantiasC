@@ -6,6 +6,7 @@ Este repositorio va a ser usado para almacenar los programas ejemplos que sean c
 - Programa de lectura de archivos o de entrada del usuario --> Contiene un programa aplicando opciones, simulando el comando head, y se muestra como se puede leer un archivo o la entrada estandar del sistema(stdin). Para probarlo, usar la opcion -f para indicar el nombre del archivo, y usar la opcion -n para indicar el numero de lineas a leer.
 Si ven el video, veran que se uso la funcion fopen, aqui dejo el link de los modos que se puede usar para abrir el archivo -> [Ver modos del fopen](https://www.tutorialspoint.com/c_standard_library/c_function_fopen.htm)
 - Lectura de archivo o entrada del stdin --> Este es un programa que toca temas que veran en el segundo parcial, este programa imprime el contenido de un archivo por la consola, inclusive puede imprimir lo que se envia por la entrada estandar del sistema(ej: cat names.data | ./mycat)
+- Verificacion Sudoku --> Un programa que aplica lo aprendido sobre Hilos, y como realizar un sistema multi-hilos para mejorar la velocidad de ejecucion de mi programa. Pueden ir revisando para que tengan referencia para el segundo parcial cuando lleguen a este tema.
 
 ## Caracteres Especiales usados en la familia de funciones de printf y scanf
 - %c --> para para imprimir o capturar un caracter en codigo ASCII (char, ej: si declare una variable char c = 88, al usar este caracter, en la consola me imprime el valor de X)
