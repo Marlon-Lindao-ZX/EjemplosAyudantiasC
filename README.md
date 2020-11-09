@@ -1,12 +1,16 @@
 # EjemplosAyudantiasC
 Este repositorio va a ser usado para almacenar los programas ejemplos que sean creados en las ayudantías:
+Programas hechos en Ayudantia:
 - Estadistica --> Contiene un programa para calcular la media y varianza de una lista de numeros ingresados por el usuario
 - Punteros --> Contiene las bases de los punteros, como usarlos y la aritmética de los mismos
 - Programa con Opciones --> Contiene las bases para realizar un programa que reciba opciones como el comando ls que tiene opciones como el -l o -a
 - Programa de lectura de archivos o de entrada del usuario --> Contiene un programa aplicando opciones, simulando el comando head, y se muestra como se puede leer un archivo o la entrada estandar del sistema(stdin). Para probarlo, usar la opcion -f para indicar el nombre del archivo, y usar la opcion -n para indicar el numero de lineas a leer.
 Si ven el video, veran que se uso la funcion fopen, aqui dejo el link de los modos que se puede usar para abrir el archivo -> [Ver modos del fopen](https://www.tutorialspoint.com/c_standard_library/c_function_fopen.htm)
+
+Temas Avanzados:
 - Lectura de archivo o entrada del stdin --> Este es un programa que toca temas que veran en el segundo parcial, este programa imprime el contenido de un archivo por la consola, inclusive puede imprimir lo que se envia por la entrada estandar del sistema(ej: cat names.data | ./mycat)
 - Verificacion Sudoku --> Un programa que aplica lo aprendido sobre Hilos, y como realizar un sistema multi-hilos para mejorar la velocidad de ejecucion de mi programa. Pueden ir revisando para que tengan referencia para el segundo parcial cuando lleguen a este tema.
+- trabajo_comunicacion_shm_pipe --> Esta carpeta contiene dos programa ya con aplicaciones avanzadas, en el segundo parcial aprenderan sobre procesos, y veran que no tienen un medio de comunicacion en comparacion con hilos, por lo que, aqui se aplican dos tecnicas para permitir la comunicacion entre los mismos, usando un pipe como medio de comunicacion, y un espacio de memoria compartida 
 
 ## Caracteres Especiales usados en la familia de funciones de printf y scanf
 - %c --> para para imprimir o capturar un caracter en codigo ASCII (char, ej: si declare una variable char c = 88, al usar este caracter, en la consola me imprime el valor de X)
