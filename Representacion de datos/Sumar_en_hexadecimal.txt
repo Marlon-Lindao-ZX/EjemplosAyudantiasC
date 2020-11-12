@@ -1,0 +1,14 @@
+
+	Para sumar en hexadecimal
+	
+	Lo que se puede hacer
+	
+	 0x7fff9c923f08 --> Coger los 3 ultimos digitos hexadecimales
+	 
+	 f08 y despues convertir la cantidad de bytes a sumar a hexadecimal --> 16 bytes --> 10
+	 
+	 f08
+	+ 10
+	 f18
+	 
+	 0x7fff9c923f18
