@@ -4,8 +4,9 @@ Programas hechos en Ayudantia:
 - Estadistica --> Contiene un programa para calcular la media y varianza de una lista de numeros ingresados por el usuario
 - Punteros --> Contiene las bases de los punteros, como usarlos y la aritmética de los mismos
 - Programa con Opciones --> Contiene las bases para realizar un programa que reciba opciones como el comando ls que tiene opciones como el -l o -a
-- Programa de lectura de archivos o de entrada del usuario --> Contiene un programa aplicando opciones, simulando el comando head, y se muestra como se puede leer un archivo o la entrada estandar del sistema(stdin). Para probarlo, usar la opcion -f para indicar el nombre del archivo, y usar la opcion -n para indicar el numero de lineas a leer.
-Si ven el video, veran que se uso la funcion fopen, aqui dejo el link de los modos que se puede usar para abrir el archivo -> [Ver modos del fopen](https://www.tutorialspoint.com/c_standard_library/c_function_fopen.htm)
+- Programa de lectura de archivos o de entrada del usuario --> Contiene un programa aplicando opciones, simulando el comando head, y se muestra como se puede leer un archivo o la entrada estandar del sistema(stdin). Para probarlo, usar la opcion -f para indicar el nombre del archivo, y usar la opcion -n para indicar el numero de lineas a leer. Si ven el video, veran que se uso la funcion fopen, aqui dejo el link de los modos que se puede usar para abrir el archivo -> [Ver modos del fopen](https://www.tutorialspoint.com/c_standard_library/c_function_fopen.htm)
+- Representacion de datos: Aqui se presenta una pequeña calculadora hex que permite ver la representacion de un dato en hexadecimal, ademas muestra si la maquina es big endian o little endian, y por ultimo tratamos con operaciones en desplazamiento del puntero
+- Calculo tiempos: Vemos como trabajar con struct cuando son pasados como puntero o copias, se vio un metodo para calcular rendimiento de mi compu, y por ultimo, se hizo una introduccion a funciones malloc, calloc y free.
 
 Temas Avanzados:
 - Lectura de archivo o entrada del stdin --> Este es un programa que toca temas que veran en el segundo parcial, este programa imprime el contenido de un archivo por la consola, inclusive puede imprimir lo que se envia por la entrada estandar del sistema(ej: cat names.data | ./mycat)
@@ -23,7 +24,7 @@ Temas Avanzados:
 - %x --> para imprimir el valor de una variable en formato hexadecimal
 - %o --> para imprimir el valor de una variable en formato octal
 
-##Representacion de datos
+## Representacion de datos
 
 		Tabla de Tamaño de los tipos de datos
 
@@ -93,6 +94,37 @@ Temas Avanzados:
 
 		La representacion en big endian es:
 		00 00 00 2A
+		
+## Contexto De un Programa
+		
+		-----------------------------------------------
+		|						| | En direccion de memoria, el stack crece hacia bajo
+		|			STACK			| V	
+		|						| --> Variables locales, funciones
+		|						|
+		|-----------------------------------------------|
+		|						|
+		|-----------------------------------------------|
+		|						|
+		|						|
+		|						|
+		|			HEAP			| --> Zona de memoria dinamica, malloc, calloc y realloc, free para liberar
+		|						|
+		|						| A
+		|						| | En direccion de memoria, el HEAP crece hacia arriba
+		|-----------------------------------------------|
+		|						|
+		|			.bss			| ----> variables globales no inicializadas, aqui tambien van aquellas 			|			|						|	variables que fueron definidas con static
+		|						|
+		|-----------------------------------------------|
+		|						|
+		|			.data			| ---> variables globales inicializadas, aqui tambien van aquellas variables 		|			|						|	que fueron definidas con static	
+		|						|
+		|---------------------------------------------	|
+		|						|
+		|			.text			| --> Aqui va a ir el contenido de mi codigo, las instrucciones que debe 			|		 |						 |	realizar
+		|						|
+		|-----------------------------------------------|
 
 ## Direccion web donde pueden ver como modificar un README:
 [Sintaxis Readme](https://docs.github.com/es/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
