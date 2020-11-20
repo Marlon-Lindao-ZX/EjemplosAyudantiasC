@@ -8,6 +8,12 @@ Programas hechos en Ayudantia:
 - Representacion de datos: Aqui se presenta una pequeña calculadora hex que permite ver la representacion de un dato en hexadecimal, ademas muestra si la maquina es big endian o little endian, y por ultimo tratamos con operaciones en desplazamiento del puntero
 - Calculo tiempos: Vemos como trabajar con struct cuando son pasados como puntero o copias, se vio un metodo para calcular rendimiento de mi compu, y por ultimo, se hizo una introduccion a funciones malloc, calloc y free.
 
+Scripts de pruebas para tareas
+- Subido para probar la primera tarea
+
+Solucion de tareas
+- Ya esta subido la solucion de la tarea #1
+
 Temas Avanzados:
 - Lectura de archivo o entrada del stdin --> Este es un programa que toca temas que veran en el segundo parcial, este programa imprime el contenido de un archivo por la consola, inclusive puede imprimir lo que se envia por la entrada estandar del sistema(ej: cat names.data | ./mycat)
 - Verificacion Sudoku --> Un programa que aplica lo aprendido sobre Hilos, y como realizar un sistema multi-hilos para mejorar la velocidad de ejecucion de mi programa. Pueden ir revisando para que tengan referencia para el segundo parcial cuando lleguen a este tema.
