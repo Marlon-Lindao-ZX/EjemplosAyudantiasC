@@ -57,7 +57,7 @@ int main(){
     #bytes = cantidad casillas * tamaño de la casiila
     */
     gettimeofday(&inicio,NULL);
-    int *puntero = (int *) malloc(40000000*sizeof(int));
+    int *puntero = (int *) malloc(4*sizeof(int));
     gettimeofday(&fin,NULL);
     intervalo = (fin.tv_sec - inicio.tv_sec)*1000000 + (fin.tv_usec - inicio.tv_usec);
     printf("Duracion de ejecucion de malloc: %ld microsegundos\n",intervalo);
@@ -84,7 +84,7 @@ int main(){
     
     */
     gettimeofday(&inicio,NULL);
-    int *puntero2 = (int *) calloc(400000000,sizeof(int));
+    int *puntero2 = (int *) calloc(4,sizeof(int));
     gettimeofday(&fin,NULL);
     intervalo = (fin.tv_sec - inicio.tv_sec)*1000000 + (fin.tv_usec - inicio.tv_usec);
     printf("Duracion de ejecucion de calloc: %ld microsegundos\n",intervalo);

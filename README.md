@@ -7,12 +7,13 @@ Programas hechos en Ayudantia:
 - Programa de lectura de archivos o de entrada del usuario --> Contiene un programa aplicando opciones, simulando el comando head, y se muestra como se puede leer un archivo o la entrada estandar del sistema(stdin). Para probarlo, usar la opcion -f para indicar el nombre del archivo, y usar la opcion -n para indicar el numero de lineas a leer. Si ven el video, veran que se uso la funcion fopen, aqui dejo el link de los modos que se puede usar para abrir el archivo -> [Ver modos del fopen](https://www.tutorialspoint.com/c_standard_library/c_function_fopen.htm)
 - Representacion de datos: Aqui se presenta una pequeña calculadora hex que permite ver la representacion de un dato en hexadecimal, ademas muestra si la maquina es big endian o little endian, y por ultimo tratamos con operaciones en desplazamiento del puntero
 - Calculo tiempos: Vemos como trabajar con struct cuando son pasados como puntero o copias, se vio un metodo para calcular rendimiento de mi compu, y por ultimo, se hizo una introduccion a funciones malloc, calloc y free.
+-Malloc, Calloc, y Realloc: Por ahora solo esta la muestra del uso de malloc y de free. Entre este fin de semana, hago la muestra para usar calloc y realloc.
 
 Scripts de pruebas para tareas
-- Subido para probar la primera tarea
+- En la carpeta scriptpruebas, esta ya subido el script usado para probar la tarea#1, ahora antes de las siguientes tareas, subire los scripts que usare para probar su programa
 
 Solucion de tareas
-- Ya esta subido la solucion de la tarea #1
+- Dentro de la carpeta solucionTarea, ya esta subido la solucion de la tarea #1
 
 Temas Avanzados:
 - Lectura de archivo o entrada del stdin --> Este es un programa que toca temas que veran en el segundo parcial, este programa imprime el contenido de un archivo por la consola, inclusive puede imprimir lo que se envia por la entrada estandar del sistema(ej: cat names.data | ./mycat)
