@@ -7,10 +7,11 @@ int main(int argc, char **argv){
     int x;
     double y;
     char *string;
+    long f;
 
     bool pflag = false;
 
-    while((opt = getopt(argc,argv, "i:d:s:p")) != -1){
+    while((opt = getopt(argc,argv, "l:i:d:s:p")) != -1){
         switch(opt){
             case 'i':
                 x = atoi(optarg);
@@ -66,6 +67,16 @@ int main(int argc, char **argv){
                 printf("%d-%p\n",*puntero,puntero);
                 printf("\n");
                 break;
+            case 'l':
+                f = atol(optarg);
+                if(f == 0 && strcmp(optarg,"0") != 0){
+                    printf("Opcion l recibe un argumento numerico\n");
+                    return -1;
+                }
+                printf("La representacion en hexadecimal de la variable tipo double cuyo valor es %lf, es:\n", y);
+                printhex((void *)&f, sizeof(f));
+                break;
+                
             case 'd':
                 y = atof(optarg);
                 if(y == 0 && strcmp(optarg,"0") != 0){

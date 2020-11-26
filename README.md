@@ -8,6 +8,7 @@ Programas hechos en Ayudantia:
 - Representacion de datos: Aqui se presenta una pequeña calculadora hex que permite ver la representacion de un dato en hexadecimal, ademas muestra si la maquina es big endian o little endian, y por ultimo tratamos con operaciones en desplazamiento del puntero
 - Calculo tiempos: Vemos como trabajar con struct cuando son pasados como puntero o copias, se vio un metodo para calcular rendimiento de mi compu, y por ultimo, se hizo una introduccion a funciones malloc, calloc y free.
 -Malloc, Calloc, y Realloc: Por ahora solo esta la muestra del uso de malloc y de free. Entre este fin de semana, hago la muestra para usar calloc y realloc.
+- DoublyLinkedList: Implementacion de una lista doblemente enlazada.
 
 Scripts de pruebas para tareas
 - En la carpeta scriptpruebas, esta ya subido el script usado para probar la tarea#1, ahora antes de las siguientes tareas, subire los scripts que usare para probar su programa
@@ -18,7 +19,9 @@ Solucion de tareas
 Temas Avanzados:
 - Lectura de archivo o entrada del stdin --> Este es un programa que toca temas que veran en el segundo parcial, este programa imprime el contenido de un archivo por la consola, inclusive puede imprimir lo que se envia por la entrada estandar del sistema(ej: cat names.data | ./mycat)
 - Verificacion Sudoku --> Un programa que aplica lo aprendido sobre Hilos, y como realizar un sistema multi-hilos para mejorar la velocidad de ejecucion de mi programa. Pueden ir revisando para que tengan referencia para el segundo parcial cuando lleguen a este tema.
-- trabajo_comunicacion_shm_pipe --> Esta carpeta contiene dos programa ya con aplicaciones avanzadas, en el segundo parcial aprenderan sobre procesos, y veran que no tienen un medio de comunicacion en comparacion con hilos, por lo que, aqui se aplican dos tecnicas para permitir la comunicacion entre los mismos, usando un pipe como medio de comunicacion, y un espacio de memoria compartida 
+- trabajo_comunicacion_shm_pipe --> Esta carpeta contiene dos programa ya con aplicaciones avanzadas, en el segundo parcial aprenderan sobre procesos, y veran que no tienen un medio de comunicacion en comparacion con hilos, por lo que, aqui se aplican dos tecnicas para permitir la comunicacion entre los mismos, usando un pipe como medio de comunicacion, y un espacio de memoria compartida
+- Shell: Es una implementacion avanzada de shell donde se crea un proceso hijo, el hijo ejecuta el comando bash y el resultado el hijo lo pasa al padre por medio del pipe
+- Calculo de tiempos de fork y pthread_create: Aqui hay ejemplos de 3 apis de calculos de tiempo, gettimeofday, clock y getrusage(), y que son usados para medir tiempos tomados en la creacion de procesos e hilos. 
 
 ## Caracteres Especiales usados en la familia de funciones de printf y scanf
 - %c --> para para imprimir o capturar un caracter en codigo ASCII (char, ej: si declare una variable char c = 88, al usar este caracter, en la consola me imprime el valor de X)
