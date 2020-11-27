@@ -7,9 +7,10 @@ dll* crearDLL(){
     return lista;
 }
 
-nodedll *crearNodo(void *elemento){
+nodedll *crearNodo(void *elemento, size_t tamano){
     nodedll *nodo = (nodedll *) malloc(sizeof(nodedll));
     nodo->elemento = elemento;
+    nodo->tamano = tamano;
     nodo->anterior = nodo->siguiente = NULL;
     return nodo;
 }
@@ -18,29 +19,65 @@ unsigned long getTamano(dll *lista){
     return lista->tamano;
 }
 
-bool addFirst(dll *lista, void *elemento){
+bool addFirst(dll *lista, void *elemento, size_t tamano){
     if(checkListAndElementIfNull(lista,elemento)) return false;
-    nodedll *nuevo = crearNodo(elemento);
+    nodedll *nuevo = crearNodo(elemento, tamano);
     if(isEmpty(lista)) addWhenEmpty(lista,nuevo);
     else{
         lista->inicio->anterior = nuevo;
         nuevo->siguiente = lista->inicio;
         lista->inicio = nuevo;
     }
+    lista->tamano++;
     return true;
 
 }
 
-bool addLast(dll *lista, void *elemento){
+bool addLast(dll *lista, void *elemento, size_t tamano){
     if(checkListAndElementIfNull(lista,elemento)) return false;
-    nodedll *nuevo = crearNodo(elemento);
+    nodedll *nuevo = crearNodo(elemento, tamano);
     if(isEmpty(lista)) addWhenEmpty(lista,nuevo);
     else{
         lista->fin->siguiente = nuevo;
         nuevo->anterior = lista->fin;
         lista->fin = nuevo;
     }
+    lista->tamano++;
     return true;
+}
+
+bool insertDLL(dll *lista, void *elemento, size_t tamano, unsigned long posicion){
+    if(checkListAndElementIfNull(lista,elemento) || !checkPosicion(lista,posicion) || isEmpty(lista)) return false;
+    nodedll *nuevo = crearNodo(elemento, tamano);
+    long pos = 0;
+    for(nodedll *temp = lista->inicio; temp != NULL; temp = temp->siguiente){
+        if(pos == posicion){
+            if(temp == lista->inicio){
+                temp->anterior = nuevo;
+                nuevo->anterior = NULL;
+                nuevo->siguiente = temp;
+                lista->inicio = nuevo;
+            }else{
+                nodedll *anterior = temp->anterior;
+                anterior->siguiente = nuevo;
+                temp->anterior = nuevo;
+                nuevo->anterior = anterior;
+                nuevo->siguiente = temp;
+            }
+            lista->tamano++;
+            return true;
+        }
+        pos++;
+    }
+    return false;
+}
+
+void* getElementByIndex(dll *lista,unsigned long posicion){
+    return checkIFNULL((void *) lista) || isEmpty (lista) || !checkPosicion(lista,posicion) ? NULL:findByIndex(lista,posicion);
+}
+
+long getIndex(dll *lista, void *elemento, size_t tamano){
+    return checkListAndElementIfNull(lista,elemento) || isEmpty (lista) ? -1:findByElement(lista,elemento, tamano);
 }
 
 void* removeFirst(dll *lista){
@@ -66,13 +103,33 @@ void* removeLast(dll *lista){
 
 }
 
-void* getIndex(dll *lista,unsigned long posicion){
-    return checkIFNULL((void *) lista) || isEmpty (lista) || !checkPosicion(lista,posicion) ? NULL:findByIndex(lista,posicion);
+void* removeDLL(dll *lista, unsigned long posicion){
+    if(checkIFNULL((void *) lista) || !checkPosicion(lista,posicion) || isEmpty(lista)) return NULL;
+    long pos = 0;
+    for(nodedll *temp = lista->inicio; temp != NULL; temp = temp->siguiente){
+        if(pos == posicion){
+            void *elemento = temp->elemento;
+            if(lista->inicio == lista->fin){
+                setFirstLastToNull(lista);
+            }else if(temp == lista->inicio){
+                lista->inicio = temp->siguiente;
+            }else if(temp == lista->fin){
+                lista->fin = temp->anterior;
+            }else{
+                nodedll *anterior = temp->anterior;
+                nodedll *siguiente = temp->siguiente;
+                anterior->siguiente = siguiente;
+                siguiente->anterior = anterior;
+            }
+            free(temp);
+            lista->tamano--;
+            return elemento;
+        }
+        pos++;
+    }
+    return false;
 }
 
-void* getElement(dll *lista, void *elemento){
-    return checkListAndElementIfNull(lista,elemento) || isEmpty (lista) ? NULL:findByElement(lista,elemento);
-}
 
 bool destroyDLL(dll *lista){
     if(isEmpty(lista)){
@@ -115,9 +172,27 @@ void *findByIndex(dll *lista, unsigned long posicion){
     return NULL;
 }
 
-void *findByElement(dll *lista, void *elemento){
+long findByElement(dll *lista, void *elemento, size_t tamano){
+    long posicion = 0;
     for(nodedll *temp = lista->inicio; temp != NULL; temp = temp->siguiente){
-        if(temp->elemento == elemento) return temp->elemento;
+        if(checkIfEquals(temp->elemento,elemento,temp->tamano,tamano)) return posicion;
+        posicion++;
     }
-    return NULL;
+    return -1;
+}
+
+//Asumir que la DLL solo almacene un tipo de dato
+bool checkIfEquals(void *a, void *b, size_t tamanoA, size_t tamanoB){
+    return tamanoA == tamanoB ? recorrerPunteros(a,b,tamanoA):false;
+}
+
+bool recorrerPunteros(void *a, void *b, size_t tamano){
+    unsigned char *p1 = (unsigned char *) a;
+    unsigned char *p2 = (unsigned char *) b;
+    for(size_t tam = 0; tam < tamano; tam++){
+        if(*p1 != *p2) return false;
+        p1++;
+        p2++;
+    }
+    return true;
 }

@@ -22,6 +22,7 @@ Temas Avanzados:
 - trabajo_comunicacion_shm_pipe --> Esta carpeta contiene dos programa ya con aplicaciones avanzadas, en el segundo parcial aprenderan sobre procesos, y veran que no tienen un medio de comunicacion en comparacion con hilos, por lo que, aqui se aplican dos tecnicas para permitir la comunicacion entre los mismos, usando un pipe como medio de comunicacion, y un espacio de memoria compartida
 - Shell: Es una implementacion avanzada de shell donde se crea un proceso hijo, el hijo ejecuta el comando bash y el resultado el hijo lo pasa al padre por medio del pipe
 - Calculo de tiempos de fork y pthread_create: Aqui hay ejemplos de 3 apis de calculos de tiempo, gettimeofday, clock y getrusage(), y que son usados para medir tiempos tomados en la creacion de procesos e hilos. 
+- MergeSort: Aplicacion de hilos para hacer un mergesort concurrente.
 
 ## Caracteres Especiales usados en la familia de funciones de printf y scanf
 - %c --> para para imprimir o capturar un caracter en codigo ASCII (char, ej: si declare una variable char c = 88, al usar este caracter, en la consola me imprime el valor de X)
