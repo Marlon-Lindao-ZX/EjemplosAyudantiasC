@@ -9,6 +9,7 @@ Programas hechos en Ayudantia:
 - Calculo tiempos: Vemos como trabajar con struct cuando son pasados como puntero o copias, se vio un metodo para calcular rendimiento de mi compu, y por ultimo, se hizo una introduccion a funciones malloc, calloc y free.
 -Malloc, Calloc, y Realloc: Por ahora solo esta la muestra del uso de malloc y de free. Entre este fin de semana, hago la muestra para usar calloc y realloc.
 - DoublyLinkedList: Implementacion de una lista doblemente enlazada.
+- Lectura&CopiaArchivosDirectorio: Programa que copia todos los archivos de un directorio fuente a un directorio destino
 
 Scripts de pruebas para tareas
 - En la carpeta scriptpruebas, esta ya subido el script usado para probar la tarea#1, ahora antes de las siguientes tareas, subire los scripts que usare para probar su programa
