@@ -1,3 +1,4 @@
+#include <regex.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -7,7 +8,15 @@
 #include <pthread.h>
 #include <fcntl.h>
 
-#define SIZE 128
+#define SIZE 1024
+#define NP 7
+
+typedef struct data{
+	int posicion;
+	int low;
+	int high;
+	int nivel;
+}data;
 
 typedef struct colaTDA{
 	unsigned long tamano;
@@ -51,3 +60,23 @@ unsigned long findElemento(cola *mi_cola, void *elemento);
 //Opciones
 void manejar_opciones(int argc, char **argv, char **archivo);
 void print_help(char *programa);
+void end_with_error(char *buffer);
+int exponente_2(int numero);
+int obtener_potencia(int numero, int exponente);
+
+//Archivo
+bool validate_file_name(char *archivo);
+FILE * abrir_archivo(char *archivo);
+void readAndWrite(FILE *fp, bool mode);
+
+//MergeSort
+void merge(int low, int middle, int high);
+
+//Hilo
+void* thread(void* arg);
+void merge_all(int niveles, unsigned long elementos);
+
+//QuickSort
+void changePos(int *a, int*b);
+int partition (int low, int high); 
+void quickSort(int low, int high);
