@@ -10,6 +10,7 @@ Programas hechos en Ayudantia:
 -Malloc, Calloc, y Realloc: Por ahora solo esta la muestra del uso de malloc y de free. Entre este fin de semana, hago la muestra para usar calloc y realloc.
 - DoublyLinkedList: Implementacion de una lista doblemente enlazada.
 - Lectura&CopiaArchivosDirectorio: Programa que copia todos los archivos de un directorio fuente a un directorio destino
+- Sockets: Plantilla basica de un proceso cliente/servidor, aquí implementaremos los cuatro verbos de los requerimientos http, revisar descripción en la parte de abajo.
 
 Scripts de pruebas para tareas
 - En la carpeta scriptpruebas, esta ya subido el script usado para probar la tarea#1, ahora antes de las siguientes tareas, subire los scripts que usare para probar su programa
@@ -137,6 +138,35 @@ Temas Avanzados:
 		|			.text			| --> Aqui va a ir el contenido de mi codigo, las instrucciones que debe 			|		 |						 |	realizar
 		|						|
 		|-----------------------------------------------|
+		
+## Cliente - Servidor 
+
+Servidor: Proceso que siempre esta ejecutandose, y atiende requerimientos de las aplicaciones de los usuarios.
+Cliente: Proceso que hace un requerimiento al servidor.
+
+	Servidor 						Cliente
+	1)Crear el socket					1)Crear el socket
+	2)Separar el puerto a utilizar			2)Conectarse con el servidor
+	3)Avisa al sistema operativo que va 			3)Operacion de lectura y escritura
+	a escuchar requerimientos en ese puerto		4)Cierra la conexion
+	4)Acepta requerimientos de cliente
+	5)Operaciones lectura y escritura
+	6)Cierra la conexion
+	
+	1) socket()						1) socket()
+	2) bind(puerto)					2) connect(direccion_del_servidor, puerto_donde_escucha_servidor) --> 	3) listen(puerto)					retorna un descriptor que representa la conexion del servidor.
+	4) accept() --> retorna un descriptor que		3.1) write(requerimiento)
+	denota la conexion con un cliente			3.2) read(respuesta)
+	5.1) read(requerimiento_cliente)			4) Cierra la conexion
+	5.2) write(respuesta)
+	6) close(descriptor_del_cliente)
+	
+El servidor debe manejar requerimientos http, por lo general, estos requerimientos estan englobados en cuatro operaciones principiales como las operaciones CRUD en base de datos
+	Base de datos 						Requerimientos HTTP --> 4 Verbos principales	
+C --> Create -----------------------------------------------> PUT (Para insertar algo en el servidor)
+R --> Retrieve ---------------------------------------------> GET (Para obtener algo del servidor)
+U --> Update -----------------------------------------------> UPDATE	(Para actualizar algo en el servidor)
+D --> Delete -----------------------------------------------> DELETE (Para eliminar algo del servidor)
 
 ## Direccion web donde pueden ver como modificar un README:
 [Sintaxis Readme](https://docs.github.com/es/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)

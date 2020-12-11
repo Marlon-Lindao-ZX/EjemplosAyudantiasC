@@ -9,8 +9,9 @@
 #include <getopt.h>
 #include <sys/socket.h>
 #include <netdb.h>
+#include "csapp.h"
 
-#define MAXSIZE 2048
+#define MAXSIZE 1024
 
-int open_clientfd(char *hostname, char *port);
-int read_response(int fd, char *filename);
+//int read_response(int fd, char *filename);
+void handler_client(int connfd);
