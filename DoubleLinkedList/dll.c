@@ -1,4 +1,4 @@
-#include "general.h"
+#include "dll.h"
 
 dll* crearDLL(){
     dll *lista = (dll *) malloc(sizeof(dll));

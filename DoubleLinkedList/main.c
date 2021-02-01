@@ -1,4 +1,4 @@
-#include "general.h"
+#include "dll.h"
 
 int main(){
 

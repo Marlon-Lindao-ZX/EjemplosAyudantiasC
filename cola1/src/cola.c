@@ -1,0 +1,71 @@
+#include "../include/cola.h"
+
+cola *crear_cola(){
+	cola *mi_cola = (cola *) malloc(sizeof(cola));
+	mi_cola->first = mi_cola->last = NULL;
+	mi_cola->tamano = 0;
+	if(mi_cola == NULL) return NULL;
+	return mi_cola;
+}
+
+int encolar(cola *mi_cola, void * elemento){
+	if(elemento == NULL || mi_cola == NULL) return -1;
+	nodo_cola *nodo = (nodo_cola *) malloc(sizeof(nodo_cola));
+	nodo->elemento = elemento;
+    if(mi_cola->tamano == 0){
+        mi_cola->first = mi_cola->last = nodo;
+		nodo->siguiente = NULL;
+		nodo->anterior = NULL;
+    }else {
+	  	mi_cola->last->siguiente = nodo;
+		nodo->anterior = mi_cola->last;
+		nodo->siguiente = NULL;
+        mi_cola->last = nodo;
+    }
+    mi_cola->tamano += 1;
+	return 0;
+}
+
+void *decolar(cola *mi_cola){
+	if(mi_cola->tamano == 0 || mi_cola == NULL) return NULL;
+	nodo_cola *temp = mi_cola->first;
+	if(temp == NULL) return NULL;
+	void *data = temp->elemento;
+	if(mi_cola->first == mi_cola->last){ 
+        mi_cola->first = mi_cola->last = NULL;
+    } else {
+        mi_cola->first = mi_cola->first->siguiente;
+        mi_cola->first->anterior = NULL;
+        temp->siguiente = NULL;
+    }
+	free(temp);
+    mi_cola->tamano -= 1;
+	return data;
+}
+
+unsigned long tamano_cola(cola *mi_cola){
+	return mi_cola->tamano;
+}
+
+unsigned long posicion_cola(cola *mi_cola, void *elemento){
+	if(elemento == NULL) return -1;
+	else{
+		unsigned long posicion = 0;
+		for(nodo_cola *temp = mi_cola->first; temp != NULL; temp = temp->siguiente){
+			if(*((int *)temp->elemento) == *((int *) elemento)) {
+				return posicion;
+			}
+			posicion++;
+		}	
+		return -1;
+	}
+}
+
+int destruir_cola(cola *mi_cola){
+	if(mi_cola->tamano == 0) {
+		free(mi_cola);
+		return 0;
+	}
+	return -1;
+
+}
